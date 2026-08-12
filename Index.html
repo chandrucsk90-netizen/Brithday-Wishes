@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Darathi Merina</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;overflow:hidden;font-family:Georgia,serif;color:white;background:radial-gradient(circle at 50% 45%,#5a124f,#160027 45%,#05000d)}
+.scene{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.stars,.stars:before{position:absolute;inset:0;content:"";background-image:radial-gradient(#fff 1px,transparent 1.5px),radial-gradient(#ffd6ed 1px,transparent 1.5px);background-size:95px 115px,155px 175px;animation:stars 25s linear infinite;opacity:.7}
+.stars:before{transform:scale(1.5);opacity:.35;animation-duration:40s}
+.moon{position:absolute;right:8%;top:7%;width:220px;height:220px;border-radius:50%;background:#fff5fb;box-shadow:0 0 40px #fff,0 0 100px #ff6da9;animation:moon 5s ease-in-out infinite}
+.moon:after{content:"";position:absolute;left:25px;top:-12px;width:220px;height:220px;border-radius:50%;background:#090014}
+.card{z-index:5;width:min(900px,90%);padding:45px 25px;text-align:center;border:1px solid #ffffff40;border-radius:35px;background:#180026aa;backdrop-filter:blur(12px);box-shadow:0 0 60px #ff3e9b33;animation:reveal 1.4s cubic-bezier(.17,.84,.44,1)}
+.crown{font-size:70px;animation:bounce 2.5s ease-in-out infinite}
+.small{font:12px Arial;letter-spacing:5px;text-transform:uppercase;opacity:.7}
+h1{font-size:clamp(40px,9vw,85px);line-height:.95;margin:15px 0;text-shadow:0 0 20px #ff4f9b}
+.name{display:block;color:#ff9dcb;animation:glow 2s ease-in-out infinite alternate}
+.message{max-width:680px;margin:28px auto;font:clamp(17px,3.6vw,22px)/1.7 Arial;color:#ffeef8}
+.signature{color:#ffb5d7;font-size:19px}
+button{margin-top:22px;padding:14px 26px;border-radius:50px;border:1px solid #ff9bc9;background:transparent;color:white;font-weight:bold;cursor:pointer;transition:.25s}
+button:hover{background:#ff72b2;color:#26001f;transform:scale(1.06)}
+.petal{position:absolute;top:-30px;width:14px;height:22px;border-radius:80% 20%;background:#ff77b4;animation:fall 9s linear infinite;opacity:.8}
+.p1{left:8%}.p2{left:23%;animation-delay:2s}.p3{left:42%;animation-delay:4s}.p4{left:65%;animation-delay:1s}.p5{left:87%;animation-delay:3s}
+.firework{position:absolute;width:5px;height:5px;border-radius:50%;background:white;animation:firework 3s ease-out infinite}
+.f1{left:15%;top:30%}.f2{right:15%;top:60%;animation-delay:1.5s}.f3{right:25%;top:20%;animation-delay:2s}
+#surprise{display:none;position:fixed;inset:0;z-index:20;align-items:center;justify-content:center;background:#08000dcc;backdrop-filter:blur(8px)}
+.box{width:min(520px,88%);padding:40px 25px;text-align:center;border-radius:30px;background:#29002f;border:1px solid #ff8bc2;box-shadow:0 0 70px #ff46aa88;animation:pop .6s}
+.box .emoji{font-size:65px}.box h2{font-size:42px;color:#ffabd1}.box p{font:17px/1.6 Arial}
+@keyframes stars{to{background-position:100px 120px,0 20px}}
+@keyframes moon{50%{transform:translateY(-14px);box-shadow:0 0 55px #fff,0 0 120px #ff78be}}
+@keyframes reveal{from{opacity:0;transform:scale(.6) rotateX(25deg);filter:blur(12px)}to{opacity:1;transform:none;filter:none}}
+@keyframes bounce{50%{transform:translateY(-15px) rotate(5deg)}}
+@keyframes glow{to{text-shadow:0 0 12px #ff6eae,0 0 40px #ff2e91}}
+@keyframes fall{0%{transform:translateY(-40px) rotate(0);opacity:0}10%{opacity:.8}100%{transform:translateY(110vh) rotate(650deg) translateX(-70px);opacity:0}}
+@keyframes firework{0%,70%{transform:scale(.2);opacity:0}75%{transform:scale(1);opacity:1;box-shadow:0 -55px #ff7eb7,0 55px #ffd166,55px 0 #72ddf7,-55px 0 #c77dff,40px 40px #ff9ecb,-40px -40px #fff}100%{transform:scale(1.8);opacity:0}}
+@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+@media(max-width:600px){.moon{width:140px;height:140px;right:-20px}.moon:after{width:140px;height:140px}.card{padding:35px 18px;border-radius:25px}h1{font-size:clamp(38px,12vw,58px)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="scene">
+<div class="stars"></div><div class="moon"></div>
+<div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div>
+<div class="firework f1"></div><div class="firework f2"></div><div class="firework f3"></div>
+<section class="card">
+<div class="crown">👑</div>
+<div class="small">Tonight, the stars celebrate you</div>
+<h1>Happy Birthday <span class="name">Darathi Merina</span> ✨</h1>
+<p class="message">May your life sparkle brighter than the stars, your heart stay full of happiness, and every new chapter bring beautiful memories. You deserve a birthday as wonderful and special as you are. 💖</p>
+<p class="signature">With lots of love & warm wishes 🌸</p>
+<button onclick="showSurprise()">🌙 Open Your Birthday Surprise</button>
+</section>
+</div>
+<div id="surprise" onclick="closeSurprise()"><div class="box" onclick="event.stopPropagation()"><div class="emoji">💐✨🎂</div><h2>Darathi, Keep Shining!</h2><p>May every dream you chase find its way to you. May every day ahead give you a reason to smile. Happy Birthday! 💕</p><button onclick="closeSurprise()">💖 Close</button></div></div>
+<script>
+function showSurprise(){document.getElementById("surprise").style.display="flex"}
+function closeSurprise(){document.getElementById("surprise").style.display="none"}
+</script>
+</body>
+</html>
